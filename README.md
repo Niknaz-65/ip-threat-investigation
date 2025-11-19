@@ -1,116 +1,121 @@
-📡 IP Threat Investigation & OSINT Analysis
+# 🌐 IP Threat Investigation & OSINT Analysis
 
-A hands-on threat investigation project analyzing suspicious IP addresses using OSINT tools, DNS lookups, malware feeds, and threat-intel enrichment.
-This lab simulates real SOC workflows: pivoting on an IP, validating reputation, extracting metadata, and correlating findings across multiple sources.
-🔍 What This Investigation Covers
-1. DNS & Network Enumeration
+A hands-on threat investigation project analyzing suspicious IP addresses using OSINT tools, DNS lookups, API enrichment, and threat-intel feeds.  
+This project simulates real SOC and CTI workflows by pivoting on an IP, verifying reputation, extracting metadata, and correlating evidence across multiple sources.
 
-nslookup, dig, host
+---
 
-A/AAAA records
+## 🔍 Investigation Techniques
 
-Mail, TXT, and NS records
+### **1. Network & DNS Enumeration**
+Used the following tools to extract DNS and network metadata:
+- `whois`
+- `nslookup`
+- `dig`
+- `host`
 
-DNS path tracking
+Collected:
+- A/AAAA records  
+- TXT / MX / NS records  
+- Reverse DNS  
+- Registrar & ASN details  
 
-2. Threat Intelligence Lookups
+---
 
-Correlated IP reputation using:
+### **2. Threat Intelligence Lookups**
+IP reputation checked using:
+- VirusTotal  
+- Cisco Talos  
+- AbuseIPDB  
+- OTX lookups  
+- Passive DNS  
+- Threat feed metadata  
 
-VirusTotal
+---
 
-Cisco Talos Intelligence
+### **3. API-Based Enrichment**
+Queried IP intelligence APIs using `curl`:
 
-AbuseIPDB
-
-AlienVault OTX
-
-IP geolocation APIs
-
-IP2Location
-
-ipregistry.co
-
-3. API-Based Data Collection
-
-Queried threat intel sources using curl:
-
+```bash
 curl -s "https://ipinfo.io/<IP>?token=<TOKEN>"
-
+```
 
 Extracted:
+- ASN  
+- Organization  
+- Country  
+- Region  
+- Hosting type (VPN, proxy, datacenter)  
+- Known malware associations  
 
-ASN
+---
 
-Organization
+## 🧠 Methodology Summary
 
-Country
+1. Selected suspicious IP from threat feeds  
+2. Ran whois & DNS enumeration  
+3. Queried reputation from multiple OSINT sources  
+4. Pulled metadata via API  
+5. Mapped IP geolocation details  
+6. Correlated ASN + hosting provider + malware flags  
+7. Compiled evidence in screenshots & findings  
 
-Hosting provider
+---
 
-Known malware associations
+## 🖼️ Screenshots (Evidence)
 
-Sandbox detections
+All screenshots stored in `/screenshots/`.
 
-4. Geolocation & Network Attribution
+### **1. Whois lookup**
+![Whois Result](screenshots/Screenshot%202025-04-27%20113820.png)
 
-Validated IP origin using:
+### **2. Reverse DNS**
+![Reverse DNS](screenshots/Screenshot%202025-04-27%20113935.png)
 
-IP2Location
+### **3. Geolocation Information**
+![Geo IP](screenshots/Screenshot%202025-04-27%20114100.png)
 
-ipinfo
+### **5. Additional IP Intel Panel**
+![IP Panel](screenshots/Screenshot%202025-05-01%20092404.png)
 
-ipregistry
+### **6. Terminal whois output**
+![Whois Terminal](screenshots/Screenshot%202025-05-05%20100544.png)
 
-MaxMind-style lookups
+### **7. DNS Records**
+![DNS Lookup](screenshots/Screenshot%202025-05-05%20100813.png)
 
-Mapped:
+### **8. ASN + Organization**
+![ASN Lookup](screenshots/Screenshot%202025-05-06%20134340.png)
 
-Lat/Long
+### **9. API Response JSON**
+![API JSON](screenshots/Screenshot%202025-05-06%20134433.png)
 
-ISP
+### **10. Additional DNS Metadata**
+![DNS Metadata](screenshots/Screenshot%202025-05-06%20152708.png)
 
-Region
+---
 
-Hosting type (proxy, VPN, data center)
+## 📁 Repository Structure
 
-🧠 Methodology Summary
+```
+/screenshots     → all investigation evidence  
+/findings        → JSON metadata, notes, report  
+queries.txt      → all commands used  
+README.md        → project documentation
+```
 
-Selected suspicious IPs from threat feeds (OTX, Talos, etc.)
+---
 
-Ran DNS enumeration (dig, nslookup, host)
+## 🚀 Clone This Project
 
-Queried IP reputation via API and browser tools
+```bash
+git clone https://github.com/Niknaz-65/ip-threat-investigation.git
+```
 
-Extracted ASN + org metadata
+---
 
-Cross-check geolocation sources
+## 👩‍💻 Author
 
-Correlated any malware signatures
-
-Documented indicators in /findings
-
-📁 Repository Structure
-/screenshots   → all investigation terminal/web screenshots
-/findings      → summarized notes, indicators, JSON samples
-README.md      → project explanation & methodology
-queries.txt    → all commands used in the investigation
-
-🚀 How to Use This Repo
-
-Clone it:
-
-git clone https://github.com/Niknaz-65/<REPO-NAME>.git
-
-
-Review:
-
-/screenshots → all OSINT evidence
-
-/findings → conclusions and indicator summaries
-
-👩‍💻 Author
-
-Niknaz Sadehvandi
-Cybersecurity Student | SOC Analyst Learner | Threat Intelligence & OSINT Enthusiast
+**Niknaz Sadehvandi**  
+Cybersecurity Student | SOC Analyst Learner | OSINT & Threat Intelligence Enthusiast  
 🔗 LinkedIn: https://www.linkedin.com/in/niknaz-sadehvandi-a34179325/
