@@ -8,13 +8,16 @@ This project simulates real SOC and CTI workflows by pivoting on an IP, verifyin
 ## 🔍 Investigation Techniques
 
 ### **1. Network & DNS Enumeration**
+
 Used the following tools to extract DNS and network metadata:
-- `whois`
-- `nslookup`
-- `dig`
-- `host`
+
+- whois  
+- nslookup  
+- dig  
+- host  
 
 Collected:
+
 - A/AAAA records  
 - TXT / MX / NS records  
 - Reverse DNS  
@@ -23,7 +26,9 @@ Collected:
 ---
 
 ### **2. Threat Intelligence Lookups**
+
 IP reputation checked using:
+
 - VirusTotal  
 - Cisco Talos  
 - AbuseIPDB  
@@ -34,13 +39,15 @@ IP reputation checked using:
 ---
 
 ### **3. API-Based Enrichment**
-Queried IP intelligence APIs using `curl`:
+
+Queried IP intelligence APIs using curl:
 
 ```bash
 curl -s "https://ipinfo.io/<IP>?token=<TOKEN>"
 ```
 
 Extracted:
+
 - ASN  
 - Organization  
 - Country  
@@ -52,13 +59,13 @@ Extracted:
 
 ## 🧠 Methodology Summary
 
-1. Selected suspicious IP from threat feeds  
-2. Ran whois & DNS enumeration  
-3. Queried reputation from multiple OSINT sources  
-4. Pulled metadata via API  
-5. Mapped IP geolocation details  
-6. Correlated ASN + hosting provider + malware flags  
-7. Compiled evidence in screenshots & findings  
+- Selected suspicious IP from threat feeds  
+- Ran whois & DNS enumeration  
+- Queried reputation from multiple OSINT sources  
+- Pulled metadata via API  
+- Mapped IP geolocation details  
+- Correlated ASN + hosting provider + malware flags  
+- Compiled evidence in screenshots & findings  
 
 ---
 
@@ -66,31 +73,34 @@ Extracted:
 
 All screenshots stored in `/screenshots/`.
 
-### **1. Whois lookup**
+### 1. Whois lookup  
 ![Whois Result](screenshots/Screenshot%202025-04-27%20113820.png)
 
-### **2. Reverse DNS**
+### 2. Reverse DNS  
 ![Reverse DNS](screenshots/Screenshot%202025-04-27%20113935.png)
 
-### **3. Geolocation Information**
+### 3. Geolocation Information  
 ![Geo IP](screenshots/Screenshot%202025-04-27%20114100.png)
 
-### **5. Additional IP Intel Panel**
+### 4. Threat Map  
+![Nmap Scan](screenshots/Screenshot%202025-04-27%20114323.png)
+
+### 5. IP Intel Panel  
 ![IP Panel](screenshots/Screenshot%202025-05-01%20092404.png)
 
-### **6. Terminal whois output**
+### 6. Terminal Whois Output  
 ![Whois Terminal](screenshots/Screenshot%202025-05-05%20100544.png)
 
-### **7. DNS Records**
+### 7. DNS Records  
 ![DNS Lookup](screenshots/Screenshot%202025-05-05%20100813.png)
 
-### **8. ASN + Organization**
+### 8. ASN + Organization  
 ![ASN Lookup](screenshots/Screenshot%202025-05-06%20134340.png)
 
-### **9. API Response JSON**
+### 9. API Response JSON  
 ![API JSON](screenshots/Screenshot%202025-05-06%20134433.png)
 
-### **10. Additional DNS Metadata**
+### 10. Additional DNS Metadata  
 ![DNS Metadata](screenshots/Screenshot%202025-05-06%20152708.png)
 
 ---
@@ -118,4 +128,4 @@ git clone https://github.com/Niknaz-65/ip-threat-investigation.git
 
 **Niknaz Sadehvandi**  
 Cybersecurity Student | SOC Analyst Learner | OSINT & Threat Intelligence Enthusiast  
-🔗 LinkedIn: https://www.linkedin.com/in/niknaz-sadehvandi-a34179325/
+🔗 https://www.linkedin.com/in/niknaz-sadehvandi-a34179325/
