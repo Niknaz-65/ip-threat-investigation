@@ -1,131 +1,75 @@
-# 🌐 IP Threat Investigation & OSINT Analysis
+# IP Threat Investigation & OSINT Analysis
 
-A hands-on threat investigation project analyzing suspicious IP addresses using OSINT tools, DNS lookups, API enrichment, and threat-intel feeds.  
-This project simulates real SOC and CTI workflows by pivoting on an IP, verifying reputation, extracting metadata, and correlating evidence across multiple sources.
+## Overview
+Threat intelligence investigation focused on analyzing a suspicious IP address using OSINT techniques, DNS enumeration, API-based enrichment, and threat-intel correlation to support SOC and CTI workflows.
 
----
+## Why This Project Matters to SOC Teams
+- Enables rapid assessment of suspicious IPs during alerts and investigations
+- Supports triage decisions by validating reputation, hosting type, and threat associations
+- Produces enriched indicators suitable for blocking, monitoring, or escalation
 
-## 🔍 Investigation Techniques
+## Environment
+- OS: Linux / Windows
+- Tools: whois, nslookup, dig, host, curl
+- Threat Intelligence Sources: VirusTotal, Cisco Talos, AbuseIPDB, AlienVault OTX
+- APIs: ipinfo.io
+- Frameworks: Threat Intelligence lifecycle, SOC triage workflow
 
-### **1. Network & DNS Enumeration**
+## Data Collected / Artifacts
+- IP address metadata
+- DNS records (A, PTR, MX, NS, TXT)
+- ASN and hosting provider details
+- Geolocation data
+- Reputation scores and threat flags
+- API JSON responses
 
-Used the following tools to extract DNS and network metadata:
+## Analysis Steps
+1. Selected a suspicious IP from threat intelligence sources
+2. Performed whois and DNS enumeration
+3. Queried multiple reputation and threat-intel platforms
+4. Enriched IP metadata using REST APIs
+5. Correlated ASN, hosting provider, and abuse indicators
+6. Documented findings with screenshots and structured notes
 
-- whois  
-- nslookup  
-- dig  
-- host  
+## Findings
+- IP associated with hosting infrastructure commonly used for malicious activity
+- Reputation data indicated elevated abuse reports
+- ASN and provider analysis supported non-residential usage
+- DNS and reverse-lookup behavior consistent with suspicious infrastructure
 
-Collected:
+## Outcome
+- IP classified as high-risk
+- Indicator suitable for blocking or heightened monitoring
+- Recommended correlation with firewall, proxy, and SIEM logs
 
-- A/AAAA records  
-- TXT / MX / NS records  
-- Reverse DNS  
-- Registrar & ASN details  
+## Screenshots / Evidence
 
----
+All evidence stored in `/screenshots/`.
 
-### **2. Threat Intelligence Lookups**
-
-IP reputation checked using:
-
-- VirusTotal  
-- Cisco Talos  
-- AbuseIPDB  
-- OTX lookups  
-- Passive DNS  
-- Threat feed metadata  
-
----
-
-### **3. API-Based Enrichment**
-
-Queried IP intelligence APIs using curl:
-
-```bash
-curl -s "https://ipinfo.io/<IP>?token=<TOKEN>"
-```
-
-Extracted:
-
-- ASN  
-- Organization  
-- Country  
-- Region  
-- Hosting type (VPN, proxy, datacenter)  
-- Known malware associations  
-
----
-
-## 🧠 Methodology Summary
-
-- Selected suspicious IP from threat feeds  
-- Ran whois & DNS enumeration  
-- Queried reputation from multiple OSINT sources  
-- Pulled metadata via API  
-- Mapped IP geolocation details  
-- Correlated ASN + hosting provider + malware flags  
-- Compiled evidence in screenshots & findings  
-
----
-
-## 🖼️ Screenshots (Evidence)
-
-All screenshots stored in `/screenshots/`.
-
-### 1. Whois lookup  
+### Whois Lookup
 ![Whois Result](screenshots/Screenshot%202025-04-27%20113820.png)
 
-### 2. Reverse DNS  
+### Reverse DNS
 ![Reverse DNS](screenshots/Screenshot%202025-04-27%20113935.png)
 
-### 3. Geolocation Information  
+### Geolocation Information
 ![Geo IP](screenshots/Screenshot%202025-04-27%20114100.png)
 
-### 4. Threat Map  
-![Nmap Scan](screenshots/Screenshot%202025-04-27%20114323.png)
+### Threat Intelligence Panels
+![IP Intel](screenshots/Screenshot%202025-05-01%20092404.png)
 
-### 5. IP Intel Panel  
-![IP Panel](screenshots/Screenshot%202025-05-01%20092404.png)
-
-### 6. Terminal Whois Output  
-![Whois Terminal](screenshots/Screenshot%202025-05-05%20100544.png)
-
-### 7. DNS Records  
-![DNS Lookup](screenshots/Screenshot%202025-05-05%20100813.png)
-
-### 8. ASN + Organization  
-![ASN Lookup](screenshots/Screenshot%202025-05-06%20134340.png)
-
-### 9. API Response JSON  
+### API Response (JSON)
 ![API JSON](screenshots/Screenshot%202025-05-06%20134433.png)
 
-### 10. Additional DNS Metadata  
-![DNS Metadata](screenshots/Screenshot%202025-05-06%20152708.png)
-
----
-
-## 📁 Repository Structure
-
+## Repository Structure
+```text
+/screenshots   → investigation evidence  
+/findings      → metadata, notes, reports  
+queries.txt    → executed commands  
+README.md      → project documentation
 ```
-/screenshots     → all investigation evidence  
-/findings        → JSON metadata, notes, report  
-queries.txt      → all commands used  
-README.md        → project documentation
-```
-
----
-
-## 🚀 Clone This Project
-
-```bash
-git clone https://github.com/Niknaz-65/ip-threat-investigation.git
-```
-
----
-
-## 👩‍💻 Author
-
+## Author
 **Niknaz Sadehvandi**  
-Cybersecurity Student | SOC Analyst Learner | OSINT & Threat Intelligence Enthusiast  
-🔗 https://www.linkedin.com/in/niknaz-sadehvandi-a34179325/
+**Cybersecurity Analyst**  
+LinkedIn: https://www.linkedin.com/in/niknaz-sadehvandi-a34179325/
+
